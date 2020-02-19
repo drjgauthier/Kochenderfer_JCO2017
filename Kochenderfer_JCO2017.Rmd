@@ -1,0 +1,32 @@
+---
+title: "Kochenderfer_JCO2017"
+author: "J Gauthier"
+date: "2/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Plotted are the progression-free survival probabilities using the Kaplan-Meier method. The data was extracted from the Kochenderfer et al "*Lymphoma Remissions Caused by Anti-CD19 Chimeric Antigen Receptor T Cells Are Associated With High Serum Interleukin-15 Levels*" publication in the Journal of Clinical Oncology, 2017.
+
+```{r,echo=TRUE}
+library(readr)
+library(survival)
+library(survminer)
+library(prodlim)
+library(htmlTable)
+Kochenderfer_JCO2017_DOR <- read_csv("Kochenderfer_JCO2017_DOR.csv")
+htmlTable(Kochenderfer_JCO2017_DOR)
+summary(Kochenderfer_JCO2017_DOR)
+htmlTable(quantile(prodlim(Hist(fu,event)~1,data=Kochenderfer_JCO2017_DOR,reverse=TRUE)))
+PFS=survfit(Surv(fu,event)~1,data=Kochenderfer_JCO2017_DOR)
+htmlTable(summary(PFS))
+PFS_p <- ggsurvplot(PFS,data = Kochenderfer_JCO2017_DOR,palette = "jco",legend.title="",
+                    fontsize=3,risk.table.y.text = FALSE,risk.table = TRUE,conf.int = TRUE,
+                    tables.theme = theme_cleantable(),ggtheme = theme_bw(),conf.int.style = "step",
+                    xlab = "Time after CAR-T cell infusion (months)",ylab="Progression-free Survival",
+                    xscale=1,break.time.by = 1)
+PFS_p
+```
