@@ -1,8 +1,6 @@
 # Kochenderfer_JCO2017
 
-Plotted are the progression-free survival probabilities using the Kaplan-Meier method. The data was extracted from the Kochenderfer et al publication "*Lymphoma Remissions Caused by Anti-CD19 Chimeric Antigen Receptor T Cells Are Associated With High Serum Interleukin-15 Levels*" in the Journal of Clinical Oncology, 2017.Full text available.
-
-[here](https://ascopubs.org/doi/full/10.1200/JCO.2016.71.3024).
+Plotted are the progression-free survival probabilities using the Kaplan-Meier method. The data was extracted from the Kochenderfer et al publication "*Lymphoma Remissions Caused by Anti-CD19 Chimeric Antigen Receptor T Cells Are Associated With High Serum Interleukin-15 Levels*" in the Journal of Clinical Oncology, 2017. Full text available [here](https://ascopubs.org/doi/full/10.1200/JCO.2016.71.3024).
 
 ![PFS](PFS.png "PFS per Kochenderfer et al, JCO, 2017")
 
@@ -22,7 +20,7 @@ PFS_p <- ggsurvplot(PFS,data = Kochenderfer_JCO2017_DOR,palette = "jco",legend.t
                     xscale=1,break.time.by = 1)
 PFS_p
 ```
-# Complete table
+## Complete survival table
 
 | Time| Number at risk| Number of event| PFS probability| 95%CI - Lower limit| 95% CI - Upper limit|
 |----:|--------------:|---------------:|---------------:|-------------------:|--------------------:|
