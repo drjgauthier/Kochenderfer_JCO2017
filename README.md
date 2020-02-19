@@ -22,7 +22,7 @@ PFS_p <- ggsurvplot(PFS,data = Kochenderfer_JCO2017_DOR,palette = "jco",legend.t
                     xscale=1,break.time.by = 1)
 PFS_p
 ```
-#Complete table
+# Complete table
 
 | Time| Number at risk| Number of event| PFS probability| 95%CI - Lower limit| 95% CI - Upper limit|
 |----:|--------------:|---------------:|---------------:|-------------------:|--------------------:|
